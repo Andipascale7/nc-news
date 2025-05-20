@@ -7,7 +7,7 @@ const apiClient = axios.create({
 function getAllArticles() {
   return apiClient.get("/api/articles").then((response) => {
     return response.data.articles;
-  })
+  });
 };
 
 
