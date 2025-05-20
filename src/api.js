@@ -7,8 +7,14 @@ const apiClient = axios.create({
 function getAllArticles() {
   return apiClient.get("/api/articles").then((response) => {
     return response.data.articles;
-  })
-};
-
+  });
+}
+export function getCommentsByArticleId(article_id) {
+  return apiClient
+    .get(`/api/articles/${article_id}/comments`)
+    .then((response) => {
+      return response.data.comments;
+    });
+}
 
 export default getAllArticles;
