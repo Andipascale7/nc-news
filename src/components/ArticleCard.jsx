@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { getCommentsByArticleId } from "../api";
 import CommentCard from "./CommentCard";
+import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
 function ArticleCard() {
   const { article_id } = useParams();
   const [article, setArticle] = useState(null);
   const [comments, setComments] = useState([]);
+  const [votes, setVotes] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -15,6 +17,7 @@ function ArticleCard() {
       .get(`https://nc-news-api-f09o.onrender.com/api/articles/${article_id}`)
       .then((response) => {
         setArticle(response.data.article);
+        setVotes(response.data.article.votes);
       })
       .catch((err) => {
         setError("Article not found, try again");
@@ -31,6 +34,23 @@ function ArticleCard() {
       });
   }, [article_id]);
 
+  const handleVote = (voteChange) => {
+    setVotes((currentVotes) => currentVotes + voteChange);
+    setError(null);
+    axios
+      .patch(
+        `https://nc-news-api-f09o.onrender.com/api/articles/${article_id}`,
+        {
+          inc_votes: voteChange,
+        }
+      )
+      .catch((err) => {
+        setVotes((currentVotes) => currentVotes - voteChange);
+        setError("Vote update failed.Please try again");
+        console.error(err);
+      });
+  };
+
   if (error) return <p>{error}</p>;
   if (!article) return <p>Loading article, please wait...</p>;
 
@@ -46,7 +66,14 @@ function ArticleCard() {
       </p>
       <p>{article.body}</p>
       <p>
-        <strong>Votes:</strong> {article.votes}
+        <strong>Votes:</strong> {votes}
+        <button onClick={() => handleVote(1)}>
+          <FaThumbsUp />
+          Yeahhh!
+        </button>
+        <button onClick={() => handleVote(-1)}>
+          <FaThumbsDown /> Neahhh!
+        </button>
       </p>
       <p>
         <strong>Comments:</strong> {article.comment_count}

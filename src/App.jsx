@@ -1,8 +1,6 @@
-import { useState } from "react";
 import HomePage from "./components/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ArticleCard from "./components/ArticleCard"
-import ArticleList from "./components/ArticleList";
+import ArticleCard from "./components/ArticleCard";
 
 function App() {
   return (
@@ -19,4 +17,3 @@ function App() {
 }
 
 export default App;
-
