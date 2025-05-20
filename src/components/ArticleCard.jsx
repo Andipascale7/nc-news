@@ -25,6 +25,10 @@ function ArticleCard() {
   return (
     <div>
       <h2>{article.title}</h2>
+      <img
+        src={article.article_img_url}
+        alt={`Thumbnail for ${article.title}`}
+      />
       <p>
         <strong>By:</strong> {article.author}
       </p>

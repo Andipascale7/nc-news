@@ -17,6 +17,10 @@ function HomePage() {
       <ul>
         {articles.map((article) => (
           <li key={article.article_id}>
+            <img
+              src={article.article_img_url}
+              alt={`Thumbnail for ${article.title}`}
+            />
             <Link to={`/articles/${article.article_id}`}>{article.title}</Link>
           </li>
         ))}
