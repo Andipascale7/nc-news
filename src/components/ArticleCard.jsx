@@ -8,11 +8,11 @@ import CommentForm from "./CommentForm";
 function ArticleCard() {
   const { article_id } = useParams();
   const [article, setArticle] = useState(null);
-  const [error, setError] = useState(null); 
+  const [error, setError] = useState(null);
   const [comments, setComments] = useState([]);
-  const [commentsError, setCommentsError] = useState(null); 
+  const [commentsError, setCommentsError] = useState(null);
   const [commentsLoading, setCommentsLoading] = useState(true);
-  const loggedInUser = "jessjelly"
+  const loggedInUser = "jessjelly";
 
   useEffect(() => {
     axios
@@ -30,7 +30,7 @@ function ArticleCard() {
       )
       .then((response) => {
         if (response.data.comments.length === 0) {
-          setComments([]); 
+          setComments([]);
         } else {
           setComments(response.data.comments);
         }
@@ -70,7 +70,7 @@ function ArticleCard() {
         comments={comments}
         isLoading={commentsLoading}
         error={commentsError}
-        loggedInUser= "jessjelly"
+        loggedInUser="jessjelly"
       />
     </div>
   );
