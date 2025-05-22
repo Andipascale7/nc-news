@@ -2,6 +2,7 @@ import HomePage from "./components/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ArticleCard from "./components/ArticleCard";
 
+
 function App() {
   return (
     <BrowserRouter>
