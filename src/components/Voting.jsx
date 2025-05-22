@@ -59,3 +59,5 @@ function Voting({ article_id, initialVotes, onVoteChange }) {
 }
 
 export default Voting;
+
+//test
