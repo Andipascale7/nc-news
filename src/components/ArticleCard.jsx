@@ -1,54 +1,49 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { getCommentsByArticleId } from "../api";
-import CommentCard from "./CommentCard";
-import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
+import CommentsList from "./CommentsList";
+import Voting from "./Voting";
+import CommentForm from "./CommentForm";
 
 function ArticleCard() {
   const { article_id } = useParams();
   const [article, setArticle] = useState(null);
+  const [error, setError] = useState(null); 
   const [comments, setComments] = useState([]);
-  const [votes, setVotes] = useState(null);
-  const [error, setError] = useState(null);
+  const [commentsError, setCommentsError] = useState(null); 
+  const [commentsLoading, setCommentsLoading] = useState(true);
 
   useEffect(() => {
     axios
       .get(`https://nc-news-api-f09o.onrender.com/api/articles/${article_id}`)
       .then((response) => {
         setArticle(response.data.article);
-        setVotes(response.data.article.votes);
       })
       .catch((err) => {
         setError("Article not found, try again");
         console.error(err);
       });
-
-    getCommentsByArticleId(article_id)
-      .then((data) => {
-        setComments(data);
+    axios
+      .get(
+        `https://nc-news-api-f09o.onrender.com/api/articles/${article_id}/comments`
+      )
+      .then((response) => {
+        if (response.data.comments.length === 0) {
+          setComments([]); 
+        } else {
+          setComments(response.data.comments);
+        }
+        setCommentsLoading(false);
       })
       .catch((err) => {
-        setError("Comments not found, try again");
+        setCommentsError("Failed to fetch comments");
         console.error(err);
+        setCommentsLoading(false);
       });
   }, [article_id]);
 
-  const handleVote = (voteChange) => {
-    setVotes((currentVotes) => currentVotes + voteChange);
-    setError(null);
-    axios
-      .patch(
-        `https://nc-news-api-f09o.onrender.com/api/articles/${article_id}`,
-        {
-          inc_votes: voteChange,
-        }
-      )
-      .catch((err) => {
-        setVotes((currentVotes) => currentVotes - voteChange);
-        setError("Vote update failed.Please try again");
-        console.error(err);
-      });
+  const addComment = (newComment) => {
+    setComments((currComments) => [newComment, ...currComments]);
   };
 
   if (error) return <p>{error}</p>;
@@ -65,28 +60,16 @@ function ArticleCard() {
         <strong>By:</strong> {article.author}
       </p>
       <p>{article.body}</p>
-      <p>
-        <strong>Votes:</strong> {votes}
-        <button onClick={() => handleVote(1)}>
-          <FaThumbsUp />
-          Yeahhh!
-        </button>
-        <button onClick={() => handleVote(-1)}>
-          <FaThumbsDown /> Neahhh!
-        </button>
-      </p>
+      <Voting article_id={article_id} initialVotes={article.votes} />
       <p>
         <strong>Comments:</strong> {article.comment_count}
       </p>
-
-      <h3>Comments</h3>
-      <ul>
-        {comments.map((comment) => (
-          <li key={comment.comment_id}>
-            <CommentCard comment={comment} />
-          </li>
-        ))}
-      </ul>
+      <CommentForm article_id={article_id} addComment={addComment} />
+      <CommentsList
+        comments={comments}
+        isLoading={commentsLoading}
+        error={commentsError}
+      />
     </div>
   );
 }

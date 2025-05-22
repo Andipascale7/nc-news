@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 function HomePage() {
   const [articles, setArticles] = useState([]);
-
   useEffect(() => {
     getAllArticles().then((data) => {
       setArticles(data);
