@@ -10,7 +10,7 @@ function CommentsList({ comments, loggedInUser }) {
       <ul>
         {comments.map((comment) => (
           <li key={comment.comment_id}>
-            <CommentCard comment={comment} loggedInUser ={loggedInUser} />
+            <CommentCard comment={comment} loggedInUser={loggedInUser} />
           </li>
         ))}
       </ul>
@@ -19,5 +19,3 @@ function CommentsList({ comments, loggedInUser }) {
 }
 
 export default CommentsList;
-
-

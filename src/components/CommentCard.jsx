@@ -11,7 +11,9 @@ function CommentCard({ comment, loggedInUser }) {
     setDeleteError(null);
 
     axios
-      .delete(`https://nc-news-api-f09o.onrender.com/api/comments/${comment.comment_id}`)
+      .delete(
+        `https://nc-news-api-f09o.onrender.com/api/comments/${comment.comment_id}`
+      )
       .then(() => {
         setIsDeleted(true);
       })
@@ -23,7 +25,12 @@ function CommentCard({ comment, loggedInUser }) {
       });
   };
 
-  if (isDeleted) return <p><em>Comment deleted.</em></p>;
+  if (isDeleted)
+    return (
+      <p>
+        <em>Comment deleted.</em>
+      </p>
+    );
 
   return (
     <div>
@@ -36,7 +43,6 @@ function CommentCard({ comment, loggedInUser }) {
           {isDeleting ? "Deleting..." : "Delete"}
         </button>
       )}
-
       {deleteError && <p style={{ color: "red" }}>{deleteError}</p>}
     </div>
   );

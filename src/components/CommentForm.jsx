@@ -10,7 +10,7 @@ function CommentForm({ article_id, addComment }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(!username.trim()) {
+    if (!username.trim()) {
       setPostError("Please enter your username");
       return;
     }
@@ -56,7 +56,9 @@ function CommentForm({ article_id, addComment }) {
         />
       </label>
       <br />
-      <label> Add a comment:
+      <label>
+        {" "}
+        Add a comment:
         <textarea
           value={commentBody}
           onChange={(event) => setCommentBody(event.target.value)}
@@ -74,8 +76,3 @@ function CommentForm({ article_id, addComment }) {
 }
 
 export default CommentForm;
-
-
-
-
-
