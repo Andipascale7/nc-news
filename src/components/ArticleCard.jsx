@@ -12,6 +12,7 @@ function ArticleCard() {
   const [comments, setComments] = useState([]);
   const [commentsError, setCommentsError] = useState(null); 
   const [commentsLoading, setCommentsLoading] = useState(true);
+  const loggedInUser = "jessjelly"
 
   useEffect(() => {
     axios
@@ -69,6 +70,7 @@ function ArticleCard() {
         comments={comments}
         isLoading={commentsLoading}
         error={commentsError}
+        loggedInUser= "jessjelly"
       />
     </div>
   );
