@@ -1,19 +1,28 @@
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 function TopicArticles() {
   const { topic_slug } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const sort_by = searchParams.get("sort_by") || "created_at";
+  const order = searchParams.get("order") || "desc";
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://nc-news-api-f09o.onrender.com/api/articles?topic=${topic_slug}`
-      )
+useEffect(() => {
+  setLoading(true);
+  setError(null);
+
+    axios.get(`https://nc-news-api-f09o.onrender.com/api/articles`, {
+        params: {
+          topic: topic_slug,
+          sort_by: sort_by,
+          order: order,
+        },
+      })
       .then(({ data }) => {
         setArticles(data.articles);
         setLoading(false);
@@ -23,15 +32,37 @@ function TopicArticles() {
         setLoading(false);
         console.error(err);
       });
-  }, [topic_slug]);
+  }, [topic_slug, sort_by, order]);
 
-  if (!topic_slug) return;
+  if (!topic_slug) return null;
   if (loading) return <p>Loading articles...</p>;
   if (error) return <p>{error}</p>;
+
+  const handleSortChange = (event) => {
+    setSearchParams({ sort_by: event.target.value, order });
+  };
+
+  const handleOrderToggle = () => {
+    setSearchParams({ sort_by, order: order === "asc" ? "desc" : "asc" });
+  };
 
   return (
     <div>
       <h2>Articles about {topic_slug}</h2>
+
+      <div>
+        <label htmlFor="sort_by">Sort by: </label>
+        <select id="sort_by" value={sort_by} onChange={handleSortChange}>
+          <option value="created_at">Date</option>
+          <option value="votes">Votes</option>
+          <option value="comment_count">Comment Count</option>
+        </select>
+
+        <button onClick={handleOrderToggle}>
+          Order: {order === "asc" ? "Ascending" : "Descending"}
+        </button>
+      </div>
+
       <ul>
         {articles.map((article) => (
           <li key={article.article_id}>
@@ -39,7 +70,7 @@ function TopicArticles() {
               <h3>{article.title}</h3>
             </Link>
             <p>
-              {article.author} | Votes: {article.votes}
+              {article.author} | Votes: {article.votes} | Comments: {article.comment_count}
             </p>
           </li>
         ))}
