@@ -4,6 +4,7 @@ import axios from "axios";
 import CommentsList from "./CommentsList";
 import Voting from "./Voting";
 import CommentForm from "./CommentForm";
+import ErrorApp from "./ErrorApp";
 
 function ArticleCard() {
   const { article_id } = useParams();
@@ -47,7 +48,7 @@ function ArticleCard() {
     setComments((currComments) => [newComment, ...currComments]);
   };
 
-  if (error) return <p>{error}</p>;
+  if (error) return <ErrorApp message={error} />;
   if (!article) return <p>Loading article, please wait...</p>;
 
   return (
