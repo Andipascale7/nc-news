@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useContext } from "react";
+import UserContext from "./UserContext"
 import axios from "axios";
 import CommentsList from "./CommentsList";
 import Voting from "./Voting";
@@ -13,7 +15,7 @@ function ArticleCard() {
   const [comments, setComments] = useState([]);
   const [commentsError, setCommentsError] = useState(null);
   const [commentsLoading, setCommentsLoading] = useState(true);
-  const loggedInUser = "jessjelly";
+  const { loggedInUser } = useContext(UserContext);
 
   useEffect(() => {
     axios
@@ -66,7 +68,7 @@ function ArticleCard() {
       <p>
         <strong>Comments:</strong> {article.comment_count}
       </p>
-      <CommentForm article_id={article_id} addComment={addComment} />
+      <CommentForm article_id={article_id} addComment={addComment} loggedInUser="jessjelly" />
       <CommentsList
         comments={comments}
         isLoading={commentsLoading}

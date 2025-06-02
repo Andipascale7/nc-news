@@ -4,11 +4,12 @@ import ArticleCard from "./components/ArticleCard";
 import TopicArticles from "./components/TopicArticles";
 import TopicsList from "./components/TopicsList";
 import ErrorPage from "./components/ErrorPage";
-
+import UserContext from "./components/UserContext";
 
 function App() {
   return (
     <BrowserRouter>
+    <UserContext.Provider value={{ loggedInUser: "jessjelly" }}></UserContext.Provider>
       <div>
         <Routes>
           <Route path="/" element={<HomePage />} />
