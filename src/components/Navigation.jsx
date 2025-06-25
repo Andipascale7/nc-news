@@ -3,17 +3,16 @@ import { Link, useLocation } from "react-router-dom";
 function Navigation() {
   const location = useLocation();
 
-
-  const showBackButton = location.pathname !== '/';
+  const showBackButton = location.pathname !== "/";
 
   return (
     <>
       {showBackButton && (
         <Link to="/" className="back-to-home-btn">
-          ← Back to Home
+          ← All Articles
         </Link>
       )}
-      
+
       <header className="app-header">
         <div className="header-content">
           <Link to="/" className="app-title-link">
