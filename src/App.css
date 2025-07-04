@@ -1,3 +1,4 @@
+/* Header and navigation */
 .app-header {
   text-align: center;
   width: 100%;
@@ -34,7 +35,7 @@
   text-align: center;
 }
 
-
+/* Browse topics button */
 .browse-topics-header {
   position: absolute;
   top: 2rem;
@@ -73,6 +74,7 @@
   outline-offset: 2px;
 }
 
+/* Back to home button */
 .back-to-home-btn {
   position: absolute;
   top: 2rem;
@@ -103,7 +105,7 @@
   box-shadow: var(--shadow-elevated);
 }
 
-
+/* Legacy browse topics */
 .browse-topics-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -146,7 +148,7 @@
   outline-offset: 2px;
 }
 
-
+/* Homepage articles grid */
 .articles-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -294,22 +296,23 @@
   color: var(--text-secondary);
 }
 
-
+/* Topics page */
 .topics-page {
   width: 100%;
   margin: 0;
-  padding: 3rem 0;
+  padding: 2rem 0;
+  min-height: 100vh;
 }
 
 .topics-intro {
   text-align: center;
-  margin-bottom: 3rem;
-  padding: 0 2rem;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
 }
 
 .topics-title {
   font-family: "Georgia", serif;
-  font-size: 1.75rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 400;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
@@ -317,19 +320,19 @@
 
 .topics-subtitle {
   font-family: "Georgia", serif;
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
   color: var(--text-secondary);
   font-style: italic;
 }
 
 .topics-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  width: 100%;
-  background: var(--background-tertiary);
-  margin: 0;
-  padding: 0;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  background: transparent;
 }
 
 .topic-card-link {
@@ -340,12 +343,14 @@
 
 .topic-card {
   background: var(--background);
+  border: 1px solid var(--border-color);
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
   height: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 400px;
 }
 
 .topic-card:hover {
@@ -355,9 +360,10 @@
 
 .topic-image-wrapper {
   position: relative;
-  height: 250px;
+  height: 200px;
   overflow: hidden;
   background: var(--background-secondary);
+  flex-shrink: 0;
 }
 
 .topic-card-image {
@@ -405,7 +411,226 @@
 }
 
 .topic-content {
-  padding: 2rem;
+  padding: 1.5rem;
   flex: 1;
   display: flex;
-  flex-direction}
+  flex-direction: column;
+}
+
+.topic-name {
+  font-family: "Georgia", serif;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+.topic-description {
+  font-family: "Georgia", serif;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.latest-article {
+  background: var(--background-secondary);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 3px solid #667eea;
+}
+
+.latest-title {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.latest-headline {
+  font-family: "Georgia", serif;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.latest-author {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.topic-stats {
+  border-top: 1px solid var(--border-light);
+  padding-top: 1rem;
+  margin-top: auto;
+}
+
+/* Focus states */
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+a:focus-visible,
+.article-card:focus-visible {
+  outline: 3px solid var(--accent-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px white, 0 0 0 5px var(--accent-blue);
+  transition: box-shadow 0.2s ease;
+}
+
+.article-card-link:focus-visible .article-card {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border: 2px solid var(--accent-blue);
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .articles-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .topics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .topics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .topic-content {
+    padding: 1.25rem;
+  }
+  
+  .topic-image-wrapper {
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .browse-topics-btn-header {
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+  }
+  
+  .browse-topics-header {
+    top: 1rem;
+    left: 1rem;
+  }
+  
+  .app-header {
+    padding: 1rem 0 0.75rem;
+  }
+  
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    left: 50%;
+    right: 50%;
+    width: 100vw;
+  }
+  
+  .topics-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .topics-page {
+    padding: 1rem 0;
+  }
+  
+  .topics-intro {
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .topic-content {
+    padding: 1rem;
+  }
+  
+  .topic-image-wrapper {
+    height: 160px;
+  }
+  
+  .browse-topics-container {
+    padding: 1rem;
+    justify-content: center;
+  }
+  
+  .back-to-home-btn {
+    position: static;
+    margin: 1rem;
+    display: block;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+  
+  .app-title {
+    font-size: 1.5rem;
+  }
+  
+  .browse-topics-btn-header {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.65rem;
+  }
+  
+  .topics-grid {
+    grid-template-columns: 1fr;
+    padding: 0 0.5rem;
+  }
+  
+  .topic-content {
+    padding: 0.75rem;
+  }
+  
+  .topic-image-wrapper {
+    height: 140px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1400px) {
+  .topics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    max-width: 1600px;
+  }
+  
+  .articles-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
