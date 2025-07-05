@@ -63,20 +63,15 @@ function TopicArticles() {
     setSearchParams({ sort_by, order: order === "asc" ? "desc" : "asc" });
   };
 
-
-  const [featuredArticle, ...regularArticles] = articles;
-
   return (
-    <div className="topic-articles-page">
-      <section className="topic-hero">
-        <div className="topic-hero-content">
-          <h1 className="topic-page-title">
-            {topic_slug.charAt(0).toUpperCase() + topic_slug.slice(1)}
-          </h1>
-          <p className="topic-page-subtitle">
-            Latest articles and insights about {topic_slug}
-          </p>
-        </div>
+    <div>
+      <section className="topic-info-section">
+        <h2 className="topic-main-title">
+          {topic_slug}
+        </h2>
+        <p className="topic-main-subtitle">
+          Latest articles and insights about {topic_slug}
+        </p>
       </section>
 
       <section className="topic-controls">
@@ -98,94 +93,80 @@ function TopicArticles() {
         </div>
       </section>
 
-      {featuredArticle && (
-        <section className="featured-article-section">
-          <Link to={`/articles/${featuredArticle.article_id}`} className="featured-article-link">
-            <article className="featured-article">
-              <div className="featured-image-wrapper">
-                <img
-                  src={featuredArticle.article_img_url}
-                  alt=""
-                  className="featured-image"
-                  onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/800x400/667eea/ffffff?text=Featured+Article';
-                  }}
-                />
-                <div className="featured-overlay">
-                  <span className="featured-topic">{featuredArticle.topic}</span>
-                </div>
-              </div>
-              <div className="featured-content">
-                <h3 className="featured-title">{featuredArticle.title}</h3>
-                <p className="featured-excerpt">
-                  {featuredArticle.body 
-                    ? featuredArticle.body.substring(0, 200) + '...'
-                    : 'Click to read the full article'
-                  }
-                </p>
-                <div className="featured-meta">
-                  <span className="featured-author">By {featuredArticle.author}</span>
-                  <span className="featured-date">
-                    {new Date(featuredArticle.created_at).toLocaleDateString('en-US', {
-                      month: 'long',
-                      day: 'numeric',
-                      year: 'numeric'
-                    })}
-                  </span>
-                  <div className="featured-stats">
-                    <span>👍 {featuredArticle.votes}</span>
-                    <span>💬 {featuredArticle.comment_count}</span>
+      <main id="main-content">
+        <section 
+          className="articles-grid"
+          role="region"
+          aria-label={`${topic_slug} articles`}
+          aria-describedby="articles-description"
+        >
+          <div id="articles-description" className="sr-only">
+            A grid of {articles.length} articles about {topic_slug}. Use arrow keys to navigate.
+          </div>
+          
+          {articles.map((article) => (
+            <Link 
+              key={article.article_id} 
+              to={`/articles/${article.article_id}`}
+              className="article-card-link"
+              aria-label={`Read article: ${article.title} by ${article.author}`}
+              tabIndex="0"
+            >
+              <article className="article-card">
+                <div className="article-image-wrapper">
+                  <img
+                    src={article.article_img_url}
+                    alt={`Illustration for article: ${article.title}`}
+                    className="article-card-image"
+                    onError={(e) => {
+                      e.target.src = 'https://via.placeholder.com/300x300/f0f0f0/999999?text=NC+News';
+                      e.target.alt = 'Default news placeholder image';
+                    }}
+                  />
+                  <div className="article-overlay">
+                    <span className="article-topic" aria-label={`Topic: ${article.topic}`}>
+                      {article.topic}
+                    </span>
                   </div>
                 </div>
-              </div>
-            </article>
-          </Link>
-        </section>
-      )}
-
-      {regularArticles.length > 0 && (
-        <section className="regular-articles-section">
-          <h2 className="section-title">More Articles</h2>
-          <div className="regular-articles-grid">
-            {regularArticles.map((article) => (
-              <Link 
-                key={article.article_id} 
-                to={`/articles/${article.article_id}`}
-                className="regular-article-link"
-              >
-                <article className="regular-article">
-                  <div className="regular-image-wrapper">
-                    <img
-                      src={article.article_img_url}
-                      alt=""
-                      className="regular-image"
-                      onError={(e) => {
-                        e.target.src = 'https://via.placeholder.com/300x200/f0f0f0/999999?text=Article';
-                      }}
-                    />
-                  </div>
-                  <div className="regular-content">
-                    <h4 className="regular-title">{article.title}</h4>
-                    <div className="regular-meta">
-                      <span className="regular-author">By {article.author}</span>
-                      <span className="regular-date">
+                
+                <div className="article-content">
+                  <h3 className="article-title">
+                    {article.title}
+                  </h3>
+                  
+                  <div className="article-meta" id={`article-${article.article_id}-desc`}>
+                    <span className="article-author">By {article.author}</span>
+                    <span className="article-date">
+                      <time dateTime={article.created_at}>
                         {new Date(article.created_at).toLocaleDateString('en-US', {
                           month: 'short',
                           day: 'numeric'
                         })}
-                      </span>
-                    </div>
-                    <div className="regular-stats">
-                      <span>👍 {article.votes}</span>
-                      <span>💬 {article.comment_count}</span>
+                      </time>
+                    </span>
+                    
+                    <div className="article-stats" aria-label="Article engagement statistics">
+                      <div className="stat-item">
+                        <span className="stat-value" aria-label={`${article.votes} votes`}>
+                          {article.votes}
+                        </span>
+                        <span aria-hidden="true">votes</span>
+                      </div>
+                      <div className="stat-item">
+                        <span className="stat-value" aria-label={`${article.comment_count} comments`}>
+                          {article.comment_count}
+                        </span>
+                        <span aria-hidden="true">comments</span>
+                      </div>
                     </div>
                   </div>
-                </article>
-              </Link>
-            ))}
-          </div>
+                </div>
+              </article>
+            </Link>
+          ))}
         </section>
-      )}
+      </main>
     </div>
   );
 }
