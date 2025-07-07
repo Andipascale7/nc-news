@@ -65,33 +65,30 @@ function TopicArticles() {
 
   return (
     <div>
-      <section className="topic-info-section">
-        <h2 className="topic-main-title">
-          {topic_slug}
-        </h2>
-        <p className="topic-main-subtitle">
-          Latest articles and insights about {topic_slug}
-        </p>
-      </section>
-
-      <section className="topic-controls">
-        <div className="controls-container">
-          <div className="sort-controls">
-            <label htmlFor="sort_by">Sort by:</label>
-            <select id="sort_by" value={sort_by} onChange={handleSortChange}>
-              <option value="created_at">Date</option>
-              <option value="votes">Votes</option>
-              <option value="comment_count">Comments</option>
-            </select>
-            <button onClick={handleOrderToggle} className="order-btn">
-              {order === "asc" ? "↑ Ascending" : "↓ Descending"}
-            </button>
-          </div>
-          <div className="article-count">
-            {articles.length} article{articles.length !== 1 ? 's' : ''}
-          </div>
-        </div>
-      </section>
+    <section className="topic-info-section">
+  <p className="topic-main-subtitle">
+    Latest articles and insights on {topic_slug}
+  </p>
+  
+  <div className="topic-controls">
+    <div className="controls-container">
+      <div className="sort-controls">
+        <label htmlFor="sort_by">Sort by:</label>
+        <select id="sort_by" value={sort_by} onChange={handleSortChange}>
+          <option value="created_at">Date</option>
+          <option value="votes">Votes</option>
+          <option value="comment_count">Comments</option>
+        </select>
+        <button onClick={handleOrderToggle} className="order-btn">
+          {order === "asc" ? "↑ Ascending" : "↓ Descending"}
+        </button>
+      </div>
+      <div className="article-count">
+        {articles.length} article{articles.length !== 1 ? 's' : ''}
+      </div>
+    </div>
+  </div>
+</section>
 
       <main id="main-content">
         <section 
