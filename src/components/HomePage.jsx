@@ -31,9 +31,15 @@ function HomePage() {
           className="browse-topics-btn-header"
           aria-label="Browse articles by topic"
         >
-          Browse by Topic
+        TOPICS
         </Link>
       </div>
+      
+      <section className="homepage-header">
+        <p className="homepage-subtitle">
+          Stay informed with the latest articles and insights
+        </p>
+      </section>
       
       <main id="main-content">
         <h1 className="sr-only">NC News - Latest Articles</h1>

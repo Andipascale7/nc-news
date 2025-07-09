@@ -43,10 +43,9 @@ function TopicsList() {
 
   return (
     <div className="topics-page">
-      <div className="topics-intro">
-        <h2 className="topics-title">Explore by Topic</h2>
-        <p className="topics-subtitle">Discover articles organized by subject</p>
-      </div>
+<div className="topics-intro">
+  <p className="topics-subtitle">Browse our coverage areas</p>
+</div>
       
       <div className="topics-grid">
         {topics.map((topic) => {

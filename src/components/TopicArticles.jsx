@@ -67,7 +67,7 @@ function TopicArticles() {
     <div>
     <section className="topic-info-section">
   <p className="topic-main-subtitle">
-    Latest articles and insights on {topic_slug}
+    Latest on {topic_slug}
   </p>
   
   <div className="topic-controls">
