@@ -48,10 +48,10 @@ function Voting({ article_id, initialVotes, onVoteChange }) {
         <strong>Votes:</strong> {votes}
       </p>
       <button onClick={() => handleVote(1)} disabled={hasVoted}>
-        <FaThumbsUp /> Yahhh!
+        <FaThumbsUp /> 
       </button>
       <button onClick={() => handleVote(-1)} disabled={hasVoted}>
-        <FaThumbsDown /> Nahhh!
+        <FaThumbsDown /> 
       </button>
       {voteError && <p>{voteError}</p>}
     </div>
