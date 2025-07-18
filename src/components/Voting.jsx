@@ -1,26 +1,31 @@
 import { useState } from "react";
 import axios from "axios";
-import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
 function Voting({ article_id, initialVotes, onVoteChange }) {
   const [votes, setVotes] = useState(initialVotes);
   const [voteError, setVoteError] = useState(null);
-  const [hasVoted, setHasVoted] = useState(false);
+  const [userVote, setUserVote] = useState(null);
 
-  const handleVote = (voteChange) => {
-    if (hasVoted) return;
-    
+  const handleVote = (voteType) => {
+    if (userVote === voteType) return;
+
+    let voteChange;
+    if (userVote === null) {
+      voteChange = voteType === "helpful" ? 1 : -1;
+    } else {
+      voteChange = voteType === "helpful" ? 2 : -2;
+    }
+
     const newVotes = votes + voteChange;
     setVotes(newVotes);
-    
+    setUserVote(voteType);
 
     if (onVoteChange) {
       onVoteChange(newVotes);
     }
-    
-    setHasVoted(true);
+
     setVoteError(null);
-    
+
     axios
       .patch(
         `https://nc-news-api-f09o.onrender.com/api/articles/${article_id}`,
@@ -30,32 +35,49 @@ function Voting({ article_id, initialVotes, onVoteChange }) {
       )
       .catch((err) => {
         console.error(err);
+
         const revertedVotes = newVotes - voteChange;
         setVotes(revertedVotes);
-        
+        setUserVote(userVote);
         if (onVoteChange) {
           onVoteChange(revertedVotes);
         }
-        
-        setHasVoted(false);
-        setVoteError("Vote failed. Try again.");
+        setVoteError("Vote failed. Please try again.");
       });
   };
 
   return (
-    <div>
-      <p>
-        <strong>Votes:</strong> {votes}
-      </p>
-      <button onClick={() => handleVote(1)} disabled={hasVoted}>
-        <FaThumbsUp /> 
-      </button>
-      <button onClick={() => handleVote(-1)} disabled={hasVoted}>
-        <FaThumbsDown /> 
-      </button>
-      {voteError && <p>{voteError}</p>}
+    <div className="professional-voting">
+      <div className="voting-actions">
+        <button
+          className={`vote-btn helpful ${
+            userVote === "helpful" ? "voted" : ""
+          }`}
+          onClick={() => handleVote("helpful")}
+        >
+          <span className="vote-icon">👍</span>
+          <span className="vote-text">Helpful</span>
+        </button>
+
+        <button
+          className={`vote-btn not-helpful ${
+            userVote === "not-helpful" ? "voted" : ""
+          }`}
+          onClick={() => handleVote("not-helpful")}
+        >
+          <span className="vote-icon">👎</span>
+          <span className="vote-text">Not helpful</span>
+        </button>
+      </div>
+
+      <div className="vote-stats">
+        <span className="vote-count">{votes} readers found this helpful</span>
+      </div>
+
+      {voteError && <div className="vote-error">{voteError}</div>}
     </div>
   );
 }
 
 export default Voting;
+

@@ -137,7 +137,7 @@ function ArticleCard() {
         </div>
 
         <div className="social-sharing">
-          <h4>Share this article</h4>
+          <h4>Share this article </h4>
           <div className="share-buttons">
             <button className="share-btn linkedin" onClick={() => shareArticle('linkedin')}>
               💼 LinkedIn
