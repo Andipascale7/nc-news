@@ -137,7 +137,7 @@ function ArticleCard() {
         </div>
 
         <div className="social-sharing">
-          <h4>Share this article </h4>
+          <h4>Share this article</h4>
           <div className="share-buttons">
             <button className="share-btn linkedin" onClick={() => shareArticle('linkedin')}>
               💼 LinkedIn
@@ -154,7 +154,7 @@ function ArticleCard() {
         <section className="professional-engagement">
           <h3 className="engagement-title">Was this article helpful?</h3>
           <p className="engagement-subtitle">
-            Your feedback helps us create better content for the developer community
+            Your feedback helps us create better content.
           </p>
           <Voting article_id={article_id} initialVotes={article.votes} />
         </section>
