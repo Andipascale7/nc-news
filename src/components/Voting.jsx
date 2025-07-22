@@ -56,7 +56,7 @@ function Voting({ article_id, initialVotes, onVoteChange }) {
           onClick={() => handleVote("helpful")}
         >
           <span className="vote-icon">👍</span>
-          <span className="vote-text">Helpful</span>
+          {/* <span className="vote-text">Helpful</span> */}
         </button>
 
         <button
@@ -66,7 +66,7 @@ function Voting({ article_id, initialVotes, onVoteChange }) {
           onClick={() => handleVote("not-helpful")}
         >
           <span className="vote-icon">👎</span>
-          <span className="vote-text">Not helpful</span>
+          {/* <span className="vote-text">Not helpful</span> */}
         </button>
       </div>
 
