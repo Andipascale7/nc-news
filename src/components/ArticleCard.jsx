@@ -303,9 +303,6 @@ function ArticleCard() {
           
           <div className="article-meta-full">
             <div className="author-info">
-              <div className="author-avatar">
-                {article.author.charAt(0).toUpperCase()}
-              </div>
               <div className="author-details">
                 <span className="article-author">By {article.author}</span>
                 <span className="article-date">
