@@ -45,7 +45,7 @@
   color: var(--text-primary);
   border: 2px solid var(--text-primary);
   padding: 0.75rem 1.25rem;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -84,7 +84,7 @@
   color: var(--text-primary);
   border: 2px solid var(--text-primary);
   padding: 0.75rem 1.25rem;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -117,7 +117,7 @@
 
 .homepage-title {
   font-family: "Georgia", serif;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 400;
   margin: 0 0 0.5rem 0;
   color: var(--text-primary);
@@ -126,7 +126,7 @@
 
 .homepage-subtitle {
   font-family: "Georgia", serif;
-  font-size: 1rem;
+  font-size: 1.125rem;
   margin: 0;
   color: var(--text-secondary);
   font-style: italic;
@@ -198,8 +198,8 @@
   font-family: "Helvetica Neue", sans-serif;
   background: rgba(255, 255, 255, 0.95);
   color: var(--text-primary);
-  padding: 0.25rem 0.5rem;
-  font-size: 0.65rem;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -216,11 +216,11 @@
 
 .article-title {
   font-family: "Georgia", serif;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 400;
   margin-bottom: 0.5rem;
   color: var(--text-primary);
-  line-height: 1.3;
+  line-height: 1.35;
   transition: color 0.2s ease;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -242,7 +242,7 @@
   font-family: "Helvetica Neue", sans-serif;
   font-weight: 500;
   color: var(--text-secondary);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   display: block;
@@ -251,7 +251,7 @@
 
 .article-date {
   font-family: "Helvetica Neue", sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   color: var(--text-light);
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -269,7 +269,7 @@
   align-items: center;
   gap: 0.25rem;
   font-family: "Helvetica Neue", sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   color: var(--text-light);
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -296,7 +296,7 @@
 
 .topics-title {
   font-family: "Georgia", serif;
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 400;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
@@ -304,7 +304,7 @@
 
 .topics-subtitle {
   font-family: "Georgia", serif;
-  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-size: clamp(1rem, 2vw, 1.2rem);
   color: var(--text-secondary);
   font-style: italic;
 }
@@ -387,7 +387,7 @@
   background: rgba(255, 255, 255, 0.95);
   color: var(--text-primary);
   padding: 0.5rem 1rem;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -403,7 +403,7 @@
 
 .topic-name {
   font-family: "Georgia", serif;
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 400;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
@@ -415,7 +415,7 @@
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1rem;
-  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-size: clamp(1rem, 2vw, 1.125rem);
 }
 
 .latest-article {
@@ -427,7 +427,7 @@
 
 .latest-title {
   font-family: "Helvetica Neue", sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-light);
   text-transform: uppercase;
@@ -437,7 +437,7 @@
 
 .latest-headline {
   font-family: "Georgia", serif;
-  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-size: clamp(1rem, 2vw, 1.125rem);
   color: var(--text-primary);
   line-height: 1.3;
   margin-bottom: 0.5rem;
@@ -449,7 +449,7 @@
 
 .latest-author {
   font-family: "Helvetica Neue", sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-light);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -477,7 +477,7 @@
 
 .topic-main-subtitle {
   font-family: "Georgia", serif;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   margin: 0;
   color: var(--text-secondary);
   font-style: italic;
@@ -510,7 +510,7 @@
 
 .sort-controls label {
   font-family: "Helvetica Neue", sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-secondary);
   text-transform: uppercase;
@@ -520,7 +520,7 @@
 
 .sort-controls select {
   font-family: "Helvetica Neue", sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   padding: 0.4rem 0.6rem;
   border: 1px solid var(--border-color);
   background: var(--background);
@@ -534,7 +534,7 @@
   color: var(--text-primary);
   border: 1px solid var(--border-color);
   padding: 0.4rem 0.75rem;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -550,12 +550,58 @@
 
 .article-count {
   font-family: "Helvetica Neue", sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--text-light);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 500;
   white-space: nowrap;
+}
+
+/* ARTICLE CONTENT STYLES */
+.article-description,
+.article-excerpt,
+.article-summary,
+.post-excerpt,
+.entry-content p,
+.article-content-text,
+.content-description {
+  font-family: "Georgia", serif;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: rgba(66, 153, 225, 0.1);
+  border-left: 4px solid #4299e1;
+  border-radius: 4px;
+}
+
+/* Blue highlighted content box styling */
+.highlighted-content,
+.article-intro,
+.post-intro,
+[style*="background"],
+[style*="blue"] {
+  font-family: "Georgia", serif !important;
+  font-size: 1.2rem !important;
+  line-height: 1.7 !important;
+  padding: 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  border-radius: 6px !important;
+}
+
+/* Generic content paragraphs in articles */
+.article-body p,
+.post-body p,
+.content-body p,
+main p,
+article p {
+  font-family: "Georgia", serif;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin: 1.25rem 0;
+  color: var(--text-primary);
 }
 
 /* COMMENT SECTION STYLES */
@@ -580,7 +626,7 @@
 
 .discussion-title {
   font-family: "Georgia", serif;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 400;
   color: var(--text-primary);
   margin: 0 0 0.5rem 0;
@@ -588,7 +634,7 @@
 
 .discussion-subtitle {
   font-family: "Georgia", serif;
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: var(--text-secondary);
   font-style: italic;
   margin: 0;
@@ -596,7 +642,7 @@
 
 .helpful-count {
   font-family: "Helvetica Neue", sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--text-light);
   margin: 1rem 0;
   text-transform: uppercase;
@@ -617,7 +663,7 @@
 
 .comment-form h3 {
   font-family: "Georgia", serif;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 400;
   color: var(--text-primary);
   margin: 0 0 1rem 0;
@@ -625,7 +671,7 @@
 
 .commenting-as {
   font-family: "Helvetica Neue", sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
   margin: 0 0 1rem 0;
   text-transform: uppercase;
@@ -642,7 +688,7 @@
 .comment-form label {
   display: block;
   font-family: "Helvetica Neue", sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-secondary);
   margin: 0 0 0.5rem 0;
@@ -671,8 +717,8 @@ textarea {
   
   /* Typography */
   font-family: "Georgia", serif !important;
-  font-size: 1rem !important;
-  line-height: 1.5 !important;
+  font-size: 1.125rem !important;
+  line-height: 1.6 !important;
   color: var(--text-primary) !important;
   background: var(--background) !important;
   
@@ -705,8 +751,8 @@ button[type="submit"] {
   background: var(--text-primary);
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 0.875rem;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -716,7 +762,7 @@ button[type="submit"] {
   margin: 1rem 0 0 0;
   display: inline-block;
   width: auto;
-  min-width: 120px;
+  min-width: 140px;
   box-sizing: border-box;
 }
 
@@ -736,7 +782,7 @@ button[type="submit"]:hover {
 
 .comments-list h3 {
   font-family: "Georgia", serif;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 400;
   color: var(--text-primary);
   margin: 0 0 1.5rem 0;
@@ -755,7 +801,7 @@ button[type="submit"]:hover {
 .comment-author {
   font-family: "Helvetica Neue", sans-serif;
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--text-primary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -764,8 +810,8 @@ button[type="submit"]:hover {
 
 .comment-content {
   font-family: "Georgia", serif;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.125rem;
+  line-height: 1.7;
   color: var(--text-primary);
   margin: 0 0 1rem 0;
 }
@@ -775,7 +821,7 @@ button[type="submit"]:hover {
   align-items: center;
   gap: 1rem;
   font-family: "Helvetica Neue", sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-light);
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -871,7 +917,7 @@ a:focus-visible,
     top: 1rem;
     left: 1rem;
     padding: 0.6rem 1rem;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
   
   .homepage-header {
@@ -880,11 +926,11 @@ a:focus-visible,
   }
   
   .homepage-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
   
   .homepage-subtitle {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   
   .articles-grid {
@@ -937,7 +983,7 @@ a:focus-visible,
   }
   
   .topic-main-subtitle {
-    font-size: 1rem;
+    font-size: 1.125rem;
     text-align: center;
     width: 100%;
   }
@@ -978,12 +1024,14 @@ a:focus-visible,
   textarea {
     min-height: 100px !important;
     padding: 0.75rem !important;
+    font-size: 1rem !important;
   }
   
   .comment-form button,
   button[type="submit"] {
     width: 100% !important;
     text-align: center !important;
+    padding: 0.75rem 1.5rem !important;
   }
 }
 
@@ -994,15 +1042,15 @@ a:focus-visible,
   
   .browse-topics-btn-header {
     padding: 0.5rem 0.8rem;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
   
   .homepage-title {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
   }
   
   .homepage-subtitle {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
   }
   
   .articles-grid {
@@ -1053,6 +1101,10 @@ a:focus-visible,
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+  }
+  
+  .comment-content {
+    font-size: 1rem !important;
   }
 }
 
