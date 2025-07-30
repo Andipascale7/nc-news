@@ -578,7 +578,7 @@
 }
 
 /* Blue highlighted content box styling */
-.highlighted-content,
+/* .highlighted-content,
 .article-intro,
 .post-intro,
 [style*="background"],
@@ -589,8 +589,19 @@
   padding: 1.5rem !important;
   margin: 1.5rem 0 !important;
   border-radius: 6px !important;
+} */
+.highlighted-content,
+.article-intro,
+.post-intro,
+div[style*="background"],
+div[style*="blue"] {
+  font-family: "Georgia", serif;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 6px;
 }
-
 /* Generic content paragraphs in articles */
 .article-body p,
 .post-body p,
