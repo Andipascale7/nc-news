@@ -105,7 +105,7 @@
   box-shadow: var(--shadow-elevated);
 }
 
-/* Homepage header section */
+/* Homepage header  */
 .homepage-header {
   max-width: 1200px;
   margin: 0 auto;
@@ -558,7 +558,7 @@
   white-space: nowrap;
 }
 
-/* ARTICLE CONTENT STYLES */
+/* Article content */
 .article-description,
 .article-excerpt,
 .article-summary,
@@ -602,7 +602,7 @@ div[style*="blue"] {
   margin: 1.5rem 0;
   border-radius: 6px;
 }
-/* Generic content paragraphs in articles */
+/* Generic content paragraphs */
 .article-body p,
 .post-body p,
 .content-body p,
@@ -615,7 +615,7 @@ article p {
   color: var(--text-primary);
 }
 
-/* COMMENT SECTION STYLES */
+/* comment styles */
 
 .comment-section,
 .comment-section * {
@@ -660,7 +660,7 @@ article p {
   letter-spacing: 0.05em;
 }
 
-/* COMMENT FORM */
+/* comment form */
 .comment-form {
   display: block;
   margin: 0 0 2rem 0;
@@ -736,14 +736,14 @@ textarea {
   /* Behavior */
   resize: vertical !important;
   transition: border-color 0.2s ease !important;
-  
+/*   
   /* Remove any potential layout issues */
   float: none !important;
   position: static !important;
   display: block !important;
   transform: none !important;
   left: auto !important;
-  right: auto !important;
+  right: auto !important; */
 }
 
 .comment-form textarea:focus,
