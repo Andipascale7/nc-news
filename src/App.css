@@ -1114,9 +1114,9 @@ a:focus-visible,
     gap: 0.5rem;
   }
   
-  .comment-content {
+  /* .comment-content {
     font-size: 1rem !important;
-  }
+  } */
 }
 
 /* Large screens */
