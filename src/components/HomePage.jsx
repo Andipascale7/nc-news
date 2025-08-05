@@ -7,7 +7,6 @@ function HomePage() {
   const [loading, setLoading] = useState(true);
   const [loadingText, setLoadingText] = useState('');
 
-  // Typewriter effect for loading
   useEffect(() => {
     if (loading) {
       const fullText = 'Loading the latest news...';
@@ -33,7 +32,6 @@ function HomePage() {
     });
   }, []);
 
-  // Typewriter Loading Component
   const TypewriterLoading = () => {
     return (
       <div className="typewriter-loading-container">
