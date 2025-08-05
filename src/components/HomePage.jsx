@@ -5,6 +5,25 @@ import { Link } from "react-router-dom";
 function HomePage() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadingText, setLoadingText] = useState('');
+
+  // Typewriter effect for loading
+  useEffect(() => {
+    if (loading) {
+      const fullText = 'Loading the latest news...';
+      let i = 0;
+      const typewriterTimer = setInterval(() => {
+        setLoadingText(fullText.slice(0, i));
+        i++;
+        if (i > fullText.length) {
+          i = 0;
+          setLoadingText('');
+        }
+      }, 100);
+      
+      return () => clearInterval(typewriterTimer);
+    }
+  }, [loading]);
 
   useEffect(() => {
     setLoading(true);
@@ -14,13 +33,29 @@ function HomePage() {
     });
   }, []);
 
-  if (loading) {
+  // Typewriter Loading Component
+  const TypewriterLoading = () => {
     return (
-      <div className="loading" role="status" aria-live="polite">
-        <span className="sr-only">Loading articles, please wait...</span>
-        Loading articles...
+      <div className="typewriter-loading-container">
+        <div className="typewriter-content">
+          <div className="news-icon">📰</div>
+          <div className="typewriter-text">
+            {loadingText}<span className="typewriter-cursor">|</span>
+          </div>
+          <div className="loading-dots">
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+          </div>
+        </div>
       </div>
     );
+  };
+
+  if (loading) {
+    return <TypewriterLoading />;
   }
 
   return (
