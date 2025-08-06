@@ -36,7 +36,7 @@ function HomePage() {
     return (
       <div className="typewriter-loading-container">
         <div className="typewriter-content">
-          <div className="news-icon">📰</div>
+          {/* <div className="news-icon">📰</div> */}
           <div className="typewriter-text">
             {loadingText}<span className="typewriter-cursor">|</span>
           </div>
