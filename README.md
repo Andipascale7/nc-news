@@ -38,4 +38,4 @@ This portfolio project was created as part of a Digital Skills Bootcamp in Softw
 
 
 Live site:
-https://comforting-cactus-53f45a.netlify.app/
+https://ncnewsbyandi.netlify.app/
