@@ -1,4 +1,4 @@
-NC News Frontend
+NC News Frontend- still building and improving 🚧
 
 
 
