@@ -11,6 +11,7 @@ This frontend connects to a hosted RESTful API and allows dynamic navigation thr
 
 
 Minimum Requirements:
+
 Node.js v20.11.0 or higher
 (check your version using node --version)
 
@@ -34,12 +35,17 @@ Your app should now be running at http://localhost:5173/
 
 Default User:Currently, all comment and delete actions are attributed to the default user:
 jessjelly
-(No authentication is implemented — this app is for demonstration purposes.)
+(No authentication is implemented — this app is for demonstration purposes)
 
-Styling in Progress: The current version prioritizes functionality. UI/UX enhancements will be added in a later phase.
+
+
+Styling in Progress: 
+
+The current version prioritizes functionality. UI/UX enhancements will be added in a later phase.
 
 This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by Northcoders.
 
 
 Live site:
+
 https://ncnewsbyandi.netlify.app/
