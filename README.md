@@ -10,10 +10,13 @@ This frontend connects to a hosted RESTful API and allows dynamic navigation thr
 
 
 
+
 Minimum Requirements:
 
 Node.js v20.11.0 or higher
 (check your version using node --version)
+
+
 
 Installation Instructions:
 
