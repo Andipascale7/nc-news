@@ -8,7 +8,7 @@ Users can browse articles, filter by topic, sort by votes/comments/date, read fu
 
 This frontend connects to a hosted RESTful API and allows dynamic navigation through React Router.
 
-
+Backend repository: https://github.com/Andipascale7/Seeding
 
 
 Minimum Requirements:
@@ -53,8 +53,5 @@ Live site:
 
 https://ncnewsbyandi.netlify.app/
 
-Backend repository:
 
-
-https://github.com/Andipascale7/Seeding
 
